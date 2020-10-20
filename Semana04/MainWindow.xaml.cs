@@ -29,16 +29,33 @@ namespace Semana04
 
         private void BtnConsultar_Click(object sender, RoutedEventArgs e)
         {
-            BPedido bPedido = null;
-            BDetallePedido bDetallePedido = null;
+            BPedido bPedido = null; 
             try
             {
                 bPedido = new BPedido();
                 dgvPedido.ItemsSource = bPedido.GetPedidosEntreFechas(Convert.ToDateTime(txtFechaInicio.Text),
                                                                       Convert.ToDateTime(txtFechaFin.Text));
-                //bDetallePedido = new BDetallePedido();
-                //dgvDetallePedido.ItemsSource = bDetallePedido.GetDetallePedidosPorId();
 
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error, Comunicarse con el Administrador");
+            }
+            finally
+            {
+                bPedido = null;
+            }
+        }
+
+        private void BtnObtenerDetalles_Click(object sender, RoutedEventArgs e)
+        { 
+            BDetallePedido bDetallePedido = null;
+            try
+            {
+                bDetallePedido = new BDetallePedido();
+                dgvDetallePedido.ItemsSource = bDetallePedido.GetDetallePedidosPorId(Convert.ToInt32(txtIdPedido.Text));
+
+                txtTotal.Text = Convert.ToString(bDetallePedido.GetDetalleTotalPorId(Convert.ToInt32(txtIdPedido.Text)));
 
             }
             catch (Exception)
@@ -47,7 +64,7 @@ namespace Semana04
             }
             finally
             {
-                bPedido = null;
+                bDetallePedido = null;
             }
         }
     }

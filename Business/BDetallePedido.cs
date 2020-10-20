@@ -29,6 +29,7 @@ namespace Business
             }
             return DetallePedidos;
         }
+
         public decimal GetDetalleTotalPorId(int IdPedido)
         {
             List<DetallePedido> DetallePedidos = null;
@@ -37,6 +38,12 @@ namespace Business
             {
                 DDetallePedido = new DDetallePedido();
                 DetallePedidos = DDetallePedido.GetDetallePedidos(new DetallePedido { Pedido = new Pedido { IdPedido = IdPedido } });
+
+                foreach (var item in DetallePedidos)
+                {
+                    total = total + item.Cantidad * item.PrecioUnidad - item.Descuento;
+                }
+
             }
             catch(Exception ex)
             {
