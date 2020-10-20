@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace Data
 {
-    class DPedido
+    public class DPedido
     {
         public List<Pedido> GetPedidos(Pedido pedido) 
         {
