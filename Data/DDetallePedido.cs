@@ -34,9 +34,9 @@ namespace Data
                         {
                             IdPedido = reader["idpedido"] != null ? Convert.ToInt32(reader["idpedido"]) : 0,
                             IdProducto = reader["idproducto"] != null ? Convert.ToInt32(reader["idproducto"]) : 0,
-                            PrecioUnidad = reader["preciounidad"] != null ? Convert.ToInt32(reader["preciounidad"]) : 0,
+                            PrecioUnidad = reader["preciounidad"] != null ? Convert.ToDecimal(reader["preciounidad"]) : 0,
                             Cantidad = reader["cantidad"] != null ? Convert.ToInt32(reader["cantidad"]) : 0,
-                            Descuento = reader["descuento"] != null ? Convert.ToInt32(reader["descuento"]) : 0
+                            Descuento = reader["descuento"] != null ? Convert.ToDecimal(reader["descuento"]) : 0
                         });
                     }
                 }

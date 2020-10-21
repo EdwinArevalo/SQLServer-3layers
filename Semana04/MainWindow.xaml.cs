@@ -57,10 +57,11 @@ namespace Semana04
 
                 txtTotal.Text = Convert.ToString(bDetallePedido.GetDetalleTotalPorId(Convert.ToInt32(txtIdPedido.Text)));
 
+
             }
             catch (Exception)
             {
-                MessageBox.Show("Comunicarse con el Administrador");
+                MessageBox.Show("Error al obtener Detalles, Comunicarse con el Administrador");
             }
             finally
             {

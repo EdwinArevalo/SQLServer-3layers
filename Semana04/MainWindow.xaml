@@ -38,7 +38,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>Id del Pedido</Label>
-                <TextBox x:Name="txtIdPedido" Text="0001"/>
+                <TextBox x:Name="txtIdPedido" Text="10250"/>
                 <Button x:Name="btnGetDetalles" Click="BtnObtenerDetalles_Click" >Obtener Detalles</Button>
             </StackPanel>
             <StackPanel>
